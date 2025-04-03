@@ -54,9 +54,10 @@ const Index = () => {
     return success;
   };*/
 
-  /*const handleDateSelect = (date) => {
+  const handleDateSelect = (date) => {
+    console.log(date);
     setSelectedDate(date);
-  };*/
+  };
 
   return (
     <div className="min-h-screen bg-background text-foreground">
@@ -78,7 +79,7 @@ const Index = () => {
             />
           </div>
           <div className="hidden lg:block  space-y-6">
-            <ProgressCalendar /*onDateSelect={handleDateSelect}*/ />;
+            <ProgressCalendar onDateSelect={handleDateSelect} />;
           </div>
 
           {/*<Separator />*/}
