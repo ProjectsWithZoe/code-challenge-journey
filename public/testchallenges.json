@@ -1,0 +1,83 @@
+[
+  {
+    "id": 12,
+    "date": "2025-03-25",
+    "title": "Sum of Two Numbers",
+    "difficulty": "Easy",
+    "functionName": "sumTwoNumbers",
+    "description": "Write a function that takes two numbers as arguments and returns their sum.\n\nYou may assume the inputs are always valid numbers (integer or float). No need to validate inputs.",
+    "variables": "(a,b)",
+    "examples": [
+      {
+        "input": "a = 1, b = 2",
+        "output": "3",
+        "explanation": "1 + 2 equals 3"
+      },
+      {
+        "input": "a = -5, b = 10",
+        "output": "5",
+        "explanation": "-5 + 10 equals 5"
+      },
+      {
+        "input": "a = 2.5, b = 3.5",
+        "output": "6.0",
+        "explanation": "2.5 + 3.5 equals 6.0"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "date": "2025-03-27",
+    "title": "Find the Smallest Number",
+    "difficulty": "Easy",
+    "functionName": "findSmallestNumber",
+    "description": "Given an array of numbers, return the smallest number in the array.\n\nYou may assume the array contains at least one number and all elements are valid numbers.",
+    "examples": [
+      {
+        "input": "[3, 7, 2, 9, 1]",
+        "output": "1",
+        "explanation": "1 is the smallest number in the array"
+      },
+      {
+        "input": "[-5, -10, -2, 0]",
+        "output": "-10",
+        "explanation": "-10 is the smallest number in the array"
+      },
+      {
+        "input": "[42]",
+        "output": "42",
+        "explanation": "The array contains only one number"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "date": "2025-03-26",
+    "title": "Countttt Vowels in a String",
+    "difficulty": "Easy",
+    "functionName": "countVowels",
+    "description": "Write a function that takes a string and returns the count of vowels (a, e, i, o, u) in the string.\n\nThe function should be case-insensitive and should only consider English vowels.",
+    "examples": [
+      {
+        "input": "\"hello\"",
+        "output": "2",
+        "explanation": "The vowels are 'e' and 'o'"
+      },
+      {
+        "input": "\"Why\"",
+        "output": "0",
+        "explanation": "There are no vowels in the string"
+      },
+      {
+        "input": "\"AEIOU\"",
+        "output": "5",
+        "explanation": "All characters are vowels"
+      },
+      {
+        "input": "\"Python is fun\"",
+        "output": "3",
+        "explanation": "The vowels are 'o', 'i', and 'u'"
+      }
+    ]
+  }
+]
