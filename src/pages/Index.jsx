@@ -32,6 +32,7 @@ const Index = () => {
 
   useEffect(() => {
     const savedCompletedDates = getCompletedChallenges();
+    console.log(savedCompletedDates);
     setCompletedDates(savedCompletedDates); // Set the state with the saved dates
   }, []);
 
