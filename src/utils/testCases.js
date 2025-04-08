@@ -113,6 +113,533 @@ export const testCases = {
       expected: 11,
     },
   ],
+  reverseString: [
+    {
+      name: "Simple word",
+      input: ["hello"],
+      expected: "olleh",
+    },
+    {
+      name: "Empty string",
+      input: [""],
+      expected: "",
+    },
+    {
+      name: "Single character",
+      input: ["a"],
+      expected: "a",
+    },
+    {
+      name: "String with spaces",
+      input: ["hi there"],
+      expected: "ereht ih",
+    },
+  ],
+
+  sumArray: [
+    {
+      name: "Positive numbers",
+      input: [[1, 2, 3]],
+      expected: 6,
+    },
+    {
+      name: "Empty array",
+      input: [[]],
+      expected: 0,
+    },
+    {
+      name: "Array with negative numbers",
+      input: [[-1, -2, 3]],
+      expected: 0,
+    },
+    {
+      name: "Single element array",
+      input: [[5]],
+      expected: 5,
+    },
+  ],
+
+  isPalindrome: [
+    {
+      name: "Palindrome word",
+      input: ["madam"],
+      expected: true,
+    },
+    {
+      name: "Non-palindrome word",
+      input: ["hello"],
+      expected: false,
+    },
+    {
+      name: "Mixed case palindrome",
+      input: ["RaceCar"],
+      expected: true,
+    },
+    {
+      name: "Palindrome with spaces",
+      input: ["nurses run"],
+      expected: false,
+    },
+  ],
+
+  findMaxNumber: [
+    {
+      name: "Basic array",
+      input: [[1, 5, 3]],
+      expected: 5,
+    },
+    {
+      name: "All negative numbers",
+      input: [[-10, -20, -3]],
+      expected: -3,
+    },
+    {
+      name: "Single element array",
+      input: [[42]],
+      expected: 42,
+    },
+    {
+      name: "Duplicates of max",
+      input: [[7, 7, 7]],
+      expected: 7,
+    },
+  ],
+
+  factorial: [
+    {
+      name: "Positive number",
+      input: [5],
+      expected: 120,
+    },
+    {
+      name: "Zero",
+      input: [0],
+      expected: 1,
+    },
+    {
+      name: "One",
+      input: [1],
+      expected: 1,
+    },
+  ],
+
+  getOddNumbers: [
+    {
+      name: "Mixed numbers",
+      input: [[1, 2, 3, 4, 5]],
+      expected: [1, 3, 5],
+    },
+    {
+      name: "All even",
+      input: [[2, 4, 6]],
+      expected: [],
+    },
+    {
+      name: "Empty array",
+      input: [[]],
+      expected: [],
+    },
+  ],
+
+  isPrime: [
+    {
+      name: "Prime number",
+      input: [7],
+      expected: true,
+    },
+    {
+      name: "Non-prime number",
+      input: [4],
+      expected: false,
+    },
+    {
+      name: "One",
+      input: [1],
+      expected: false,
+    },
+    {
+      name: "Two",
+      input: [2],
+      expected: true,
+    },
+  ],
+
+  removeDuplicates: [
+    {
+      name: "Array with duplicates",
+      input: [[1, 2, 2, 3]],
+      expected: [1, 2, 3],
+    },
+    {
+      name: "No duplicates",
+      input: [[4, 5, 6]],
+      expected: [4, 5, 6],
+    },
+    {
+      name: "Empty array",
+      input: [[]],
+      expected: [],
+    },
+  ],
+
+  capitalizeFirstLetter: [
+    {
+      name: "Single word lowercase",
+      input: ["hello"],
+      expected: "Hello",
+    },
+    {
+      name: "Already capitalized",
+      input: ["World"],
+      expected: "World",
+    },
+    {
+      name: "Empty string",
+      input: [""],
+      expected: "",
+    },
+  ],
+  convertToFahrenheit: [
+    {
+      name: "Zero Celsius",
+      input: [0],
+      expected: 32,
+    },
+    {
+      name: "Positive Celsius",
+      input: [25],
+      expected: 77,
+    },
+    {
+      name: "Negative Celsius",
+      input: [-40],
+      expected: -40,
+    },
+  ],
+
+  fibonacci: [
+    {
+      name: "5th Fibonacci number",
+      input: [5],
+      expected: 5,
+    },
+    {
+      name: "0th Fibonacci number",
+      input: [0],
+      expected: 0,
+    },
+    {
+      name: "1st Fibonacci number",
+      input: [1],
+      expected: 1,
+    },
+    {
+      name: "10th Fibonacci number",
+      input: [10],
+      expected: 55,
+    },
+  ],
+
+  countWords: [
+    {
+      name: "Sentence with multiple words",
+      input: ["Hello world from GPT"],
+      expected: 4,
+    },
+    {
+      name: "Single word",
+      input: ["Word"],
+      expected: 1,
+    },
+    {
+      name: "Empty string",
+      input: [""],
+      expected: 0,
+    },
+  ],
+
+  squareArray: [
+    {
+      name: "Array with positive numbers",
+      input: [[1, 2, 3]],
+      expected: [1, 4, 9],
+    },
+    {
+      name: "Array with negative numbers",
+      input: [[-1, -2]],
+      expected: [1, 4],
+    },
+    {
+      name: "Empty array",
+      input: [[]],
+      expected: [],
+    },
+  ],
+
+  repeatString: [
+    {
+      name: "Repeat twice",
+      input: ["ab", 2],
+      expected: "abab",
+    },
+    {
+      name: "Repeat zero times",
+      input: ["x", 0],
+      expected: "",
+    },
+    {
+      name: "Repeat once",
+      input: ["hi", 1],
+      expected: "hi",
+    },
+  ],
+
+  isEven: [
+    {
+      name: "Even number",
+      input: [4],
+      expected: true,
+    },
+    {
+      name: "Odd number",
+      input: [5],
+      expected: false,
+    },
+    {
+      name: "Zero",
+      input: [0],
+      expected: true,
+    },
+  ],
+
+  getInitials: [
+    {
+      name: "Two names",
+      input: ["John Doe"],
+      expected: "JD",
+    },
+    {
+      name: "Single name",
+      input: ["Alice"],
+      expected: "A",
+    },
+    {
+      name: "Three-part name",
+      input: ["Bob Alan Smith"],
+      expected: "BAS",
+    },
+  ],
+
+  getMiddleCharacter: [
+    {
+      name: "Odd length string",
+      input: ["hello"],
+      expected: "l",
+    },
+    {
+      name: "Even length string",
+      input: ["test"],
+      expected: "es",
+    },
+    {
+      name: "Single character",
+      input: ["A"],
+      expected: "A",
+    },
+  ],
+
+  toTitleCase: [
+    {
+      name: "All lowercase words",
+      input: ["hello world"],
+      expected: "Hello World",
+    },
+    {
+      name: "Already title cased",
+      input: ["Hello World"],
+      expected: "Hello World",
+    },
+    {
+      name: "Empty string",
+      input: [""],
+      expected: "",
+    },
+  ],
+
+  arrayContains: [
+    {
+      name: "Element exists",
+      input: [[1, 2, 3], 2],
+      expected: true,
+    },
+    {
+      name: "Element not found",
+      input: [[4, 5, 6], 7],
+      expected: false,
+    },
+    {
+      name: "Empty array",
+      input: [[], 1],
+      expected: false,
+    },
+  ],
+
+  convertMinutesToSeconds: [
+    {
+      name: "Standard value",
+      input: [5],
+      expected: 300,
+    },
+    {
+      name: "Zero minutes",
+      input: [0],
+      expected: 0,
+    },
+    {
+      name: "Decimal minutes",
+      input: [1.5],
+      expected: 90,
+    },
+  ],
+
+  getLastElement: [
+    {
+      name: "Normal array",
+      input: [[1, 2, 3]],
+      expected: 3,
+    },
+    {
+      name: "Single element array",
+      input: [[99]],
+      expected: 99,
+    },
+    {
+      name: "Empty array",
+      input: [[]],
+      expected: undefined,
+    },
+  ],
+
+  reverseWords: [
+    {
+      name: "Simple sentence",
+      input: ["hello world"],
+      expected: "world hello",
+    },
+    {
+      name: "Single word",
+      input: ["Hi"],
+      expected: "Hi",
+    },
+    {
+      name: "Empty string",
+      input: [""],
+      expected: "",
+    },
+  ],
+
+  doubleArray: [
+    {
+      name: "Positive numbers",
+      input: [[1, 2, 3]],
+      expected: [2, 4, 6],
+    },
+    {
+      name: "With negative numbers",
+      input: [[-1, 0, 1]],
+      expected: [-2, 0, 2],
+    },
+    {
+      name: "Empty array",
+      input: [[]],
+      expected: [],
+    },
+  ],
+
+  getUniqueValues: [
+    {
+      name: "With duplicates",
+      input: [[1, 2, 2, 3]],
+      expected: [1, 2, 3],
+    },
+    {
+      name: "All unique",
+      input: [[4, 5, 6]],
+      expected: [4, 5, 6],
+    },
+    {
+      name: "Empty array",
+      input: [[]],
+      expected: [],
+    },
+  ],
+
+  isUpperCase: [
+    {
+      name: "All uppercase",
+      input: ["HELLO"],
+      expected: true,
+    },
+    {
+      name: "All lowercase",
+      input: ["hello"],
+      expected: false,
+    },
+    {
+      name: "Mixed case",
+      input: ["Hello"],
+      expected: false,
+    },
+  ],
+
+  averageArray: [
+    {
+      name: "Positive integers",
+      input: [[2, 4, 6, 8]],
+      expected: 5,
+    },
+    {
+      name: "Mixed numbers",
+      input: [[-2, 0, 2]],
+      expected: 0,
+    },
+    {
+      name: "Single number",
+      input: [[10]],
+      expected: 10,
+    },
+  ],
+
+  countEvenNumbers: [
+    {
+      name: "Mixed values",
+      input: [[1, 2, 3, 4]],
+      expected: 2,
+    },
+    {
+      name: "No even numbers",
+      input: [[1, 3, 5]],
+      expected: 0,
+    },
+    {
+      name: "All even",
+      input: [[2, 4, 6]],
+      expected: 3,
+    },
+  ],
+
+  formatPhoneNumber: [
+    {
+      name: "Simple case",
+      input: [[1, 2, 3, 4, 5, 6, 7, 8, 9, 0]],
+      expected: "(123) 456-7890",
+    },
+    {
+      name: "Already formatted",
+      input: [[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]],
+      expected: "(987) 654-3210",
+    },
+  ],
 
   // ... more functions
 };
