@@ -20,6 +20,10 @@ const CodeEditor = ({
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
+  useEffect(() => {
+    setCode(starterCode);
+  }, [starterCode]);
+
   const runTestCases = () => {
     if (!currentChallenge?.functionName) {
       toast({
@@ -57,13 +61,13 @@ const CodeEditor = ({
     }
   }, [date, currentChallenge]);*/
 
-  useEffect(() => {
-    //console.log(currentChallenge)
+  /*useEffect(() => {
+    console.log(currentChallenge);
     setCode(
       `function ${currentChallenge.functionName}${currentChallenge.variables} {\n //Write your solution here\n}` ||
         "//Write your solution here"
     );
-  }, []);
+  }, []);*/
 
   // Auto-save code changes
   useEffect(() => {

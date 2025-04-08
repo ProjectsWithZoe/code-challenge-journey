@@ -1,7 +1,7 @@
 [
   {
     "id": 12,
-    "date": "2025-03-25",
+    "date": "2025-04-06",
     "title": "Sum of Two Numbers",
     "difficulty": "Easy",
     "functionName": "sumTwoNumbers",
@@ -27,11 +27,12 @@
   },
   {
     "id": 13,
-    "date": "2025-03-27",
+    "date": "2025-04-07",
     "title": "Find the Smallest Number",
     "difficulty": "Easy",
     "functionName": "findSmallestNumber",
     "description": "Given an array of numbers, return the smallest number in the array.\n\nYou may assume the array contains at least one number and all elements are valid numbers.",
+    "variables": "(arr)",
     "examples": [
       {
         "input": "[3, 7, 2, 9, 1]",

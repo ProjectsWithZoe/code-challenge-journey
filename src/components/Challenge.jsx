@@ -32,17 +32,19 @@ const Challenge = ({ selectedDate, onChallengeLoad }) => {
         }
 
         const challenges = await response.json();
-        console.log(challenges[0]);
+        //console.log(challenges[0]);
 
         if (selectedDate) {
+          //console.log(selectedDate);
           const formattedDate = format(selectedDate, "yyyy-MM-dd");
           console.log(formattedDate);
           const matchedChallenge = challenges.find(
             (c) => c.date === formattedDate
           );
-          //console.log(matchedChallenge);
+          console.log(matchedChallenge);
 
           if (matchedChallenge) {
+            console.log("Matched challenge:", matchedChallenge);
             setChallenge(matchedChallenge);
             onChallengeLoad?.(matchedChallenge);
           } else {

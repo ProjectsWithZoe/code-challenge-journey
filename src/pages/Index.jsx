@@ -55,7 +55,7 @@ const Index = () => {
   };*/
 
   const handleDateSelect = (date) => {
-    console.log(date);
+    //console.log(date);
     setSelectedDate(date);
   };
 
@@ -79,7 +79,7 @@ const Index = () => {
             />
           </div>
           <div className="hidden lg:block  space-y-6">
-            <ProgressCalendar onDateSelect={handleDateSelect} />;
+            <ProgressCalendar onDateSelect={handleDateSelect} />
           </div>
 
           {/*<Separator />*/}
@@ -89,7 +89,10 @@ const Index = () => {
                 className="col-span-3"
                 date={format(selectedDate, "yyyy-MM-dd")}
                 currentChallenge={currentChallenge}
-                starterCode="// Write your solution here"
+                starterCode={`function ${currentChallenge.functionName}${currentChallenge.variables}{
+                  // Your code here
+                };
+                  `}
                 //onCodeSubmit={handleCodeSubmit}
               />
             )}
