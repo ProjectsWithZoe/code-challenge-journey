@@ -9,7 +9,7 @@ import ProgressCalendar from "@/components/ProgressCalendar";
 import Challenge from "@/components/Challenge";
 import AuthButton from "@/components/AuthButton";
 import { saveCompletedChallenge } from "@/lib/localStorage";
-import { getCompletedChallengeDates } from "@/lib/localStorage";
+import { getCompletedChallenges } from "@/lib/localStorage";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
 import { use } from "react";
