@@ -11,6 +11,7 @@ export const getCompletedChallenges = (): string[] => {
   const completedChallenges = localStorage.getItem(
     STORAGE_KEYS.COMPLETED_CHALLENGES
   );
+  console.log("Retrieved from localStorage:", completedChallenges); // Debug log
   return completedChallenges ? JSON.parse(completedChallenges) : [];
 };
 
