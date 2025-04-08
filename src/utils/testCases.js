@@ -282,7 +282,7 @@ export const testCases = {
     },
   ],
 
-  capitalizeFirstLetter: [
+  capitalizeFirst: [
     {
       name: "Single word lowercase",
       input: ["hello"],
@@ -638,6 +638,251 @@ export const testCases = {
       name: "Already formatted",
       input: [[9, 8, 7, 6, 5, 4, 3, 2, 1, 0]],
       expected: "(987) 654-3210",
+    },
+  ],
+  getLength: [
+    {
+      name: "String input",
+      input: ["hello"],
+      expected: 5,
+    },
+    {
+      name: "Empty string",
+      input: [""],
+      expected: 0,
+    },
+    {
+      name: "Array with elements",
+      input: [[1, 2, 3, 4]],
+      expected: 4,
+    },
+    {
+      name: "Empty array",
+      input: [[]],
+      expected: 0,
+    },
+    {
+      name: "String with spaces",
+      input: ["hello world"],
+      expected: 11,
+    },
+  ],
+  filterEven: [
+    {
+      name: "Mixed numbers",
+      input: [[1, 2, 3, 4]],
+      expected: [2, 4],
+    },
+    {
+      name: "All odd numbers",
+      input: [[5, 7, 9]],
+      expected: [],
+    },
+    {
+      name: "Empty array",
+      input: [[]],
+      expected: [],
+    },
+  ],
+
+  getFirstElement: [
+    {
+      name: "Numbers",
+      input: [[1, 2, 3]],
+      expected: 1,
+    },
+    {
+      name: "Strings",
+      input: [["a", "b"]],
+      expected: "a",
+    },
+    {
+      name: "Single item",
+      input: [[42]],
+      expected: 42,
+    },
+  ],
+
+  containsValue: [
+    {
+      name: "Value exists",
+      input: [[1, 2, 3], 2],
+      expected: true,
+    },
+    {
+      name: "Value does not exist",
+      input: [["a", "b"], "c"],
+      expected: false,
+    },
+    {
+      name: "Empty array",
+      input: [[], 1],
+      expected: false,
+    },
+  ],
+
+  toUpperCase: [
+    {
+      name: "Lowercase word",
+      input: ["hello"],
+      expected: "HELLO",
+    },
+    {
+      name: "Mixed case",
+      input: ["JavaScript"],
+      expected: "JAVASCRIPT",
+    },
+    {
+      name: "Already uppercase",
+      input: ["WOW"],
+      expected: "WOW",
+    },
+  ],
+
+  removeFirstChar: [
+    {
+      name: "Basic word",
+      input: ["hello"],
+      expected: "ello",
+    },
+    {
+      name: "Three letters",
+      input: ["abc"],
+      expected: "bc",
+    },
+    {
+      name: "Single character",
+      input: ["x"],
+      expected: "",
+    },
+  ],
+
+  joinArray: [
+    {
+      name: "Letters",
+      input: [["a", "b", "c"]],
+      expected: "a,b,c",
+    },
+    {
+      name: "Numbers",
+      input: [[1, 2, 3]],
+      expected: "1,2,3",
+    },
+    {
+      name: "Empty array",
+      input: [[]],
+      expected: "",
+    },
+  ],
+
+  isPositive: [
+    {
+      name: "Positive number",
+      input: [5],
+      expected: true,
+    },
+    {
+      name: "Negative number",
+      input: [-3],
+      expected: false,
+    },
+    {
+      name: "Zero",
+      input: [0],
+      expected: false,
+    },
+  ],
+
+  isEmptyString: [
+    {
+      name: "Empty string",
+      input: [""],
+      expected: true,
+    },
+    {
+      name: "Non-empty string",
+      input: ["abc"],
+      expected: false,
+    },
+    {
+      name: "Whitespace string",
+      input: [" "],
+      expected: false,
+    },
+  ],
+
+  boolToString: [
+    {
+      name: "True value",
+      input: [true],
+      expected: "true",
+    },
+    {
+      name: "False value",
+      input: [false],
+      expected: "false",
+    },
+  ],
+
+  removeSpaces: [
+    {
+      name: "Spaces between characters",
+      input: ["a b c"],
+      expected: "abc",
+    },
+    {
+      name: "Spaces around words",
+      input: [" hello world "],
+      expected: "helloworld",
+    },
+    {
+      name: "No spaces",
+      input: ["clean"],
+      expected: "clean",
+    },
+  ],
+
+  includesSubstring: [
+    {
+      name: "Substring found",
+      input: ["hello world", "world"],
+      expected: true,
+    },
+    {
+      name: "Substring not found",
+      input: ["test", "no"],
+      expected: false,
+    },
+    {
+      name: "Empty substring",
+      input: ["abc", ""],
+      expected: true,
+    },
+  ],
+
+  roundNumber: [
+    {
+      name: "Round up",
+      input: [4.6],
+      expected: 5,
+    },
+    {
+      name: "Round down",
+      input: [4.3],
+      expected: 4,
+    },
+    {
+      name: "Already whole",
+      input: [7],
+      expected: 7,
+    },
+  ],
+
+  getCurrentYear: [
+    {
+      name: "Get year from system",
+      input: [],
+      expected: new Date().getFullYear(),
     },
   ],
 

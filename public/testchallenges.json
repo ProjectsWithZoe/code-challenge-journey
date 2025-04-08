@@ -146,7 +146,7 @@
     "date": "2025-03-26",
     "title": "Find Maximum",
     "difficulty": "Easy",
-    "functionName": "findMax",
+    "functionName": "findMaxNumber",
     "description": "Return the largest number from an array of numbers.",
     "variables": "(array)",
     "examples": [
@@ -292,6 +292,19 @@
     "examples": [
       { "input": "4", "output": "true", "explanation": "4 is even" },
       { "input": "7", "output": "false", "explanation": "7 is odd" }
+    ]
+  },
+  {
+    "id": 34,
+    "date": "2025-04-22",
+    "title": "Check for Odd Number",
+    "difficulty": "Easy",
+    "functionName": "getOddNumbers",
+    "description": "Return true if a given number is odd.",
+    "variables": "(array)",
+    "examples": [
+      { "input": "4", "output": "false", "explanation": "4 is even" },
+      { "input": "7", "output": "true", "explanation": "7 is odd" }
     ]
   },
   {
