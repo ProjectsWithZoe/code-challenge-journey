@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronLeft, ChevronRight, Calendar } from "lucide-react";
-import { getCompletedChallenges } from "@/lib/localStorage";
 import {
   format,
   startOfMonth,
@@ -13,15 +12,15 @@ import {
   subMonths,
 } from "date-fns";
 
-const ProgressCalendar = ({ onDateSelect }) => {
+const ProgressCalendar = ({ onDateSelect, completedDates }) => {
   const [currentMonth, setCurrentMonth] = useState(new Date());
-  const [completedDates, setCompletedDates] = useState([]);
+  const futureDates = currentMonth.toISOString().split("T")[0];
 
-  useEffect(() => {
-    // Load completed challenges from localStorage
-    const completed = getCompletedChallenges();
-    setCompletedDates(completed);
-  }, []);
+  const addOneDay = (dateString) => {
+    const date = new Date(dateString); // Create a Date object from the string
+    date.setDate(date.getDate() + 1); // Add one day
+    return date.toISOString().split("T")[0]; // Convert to 'YYYY-MM-DD' format
+  };
 
   const handlePreviousMonth = () => {
     setCurrentMonth((prev) => subMonths(prev, 1));
@@ -32,9 +31,23 @@ const ProgressCalendar = ({ onDateSelect }) => {
   };
 
   const handleDayClick = (day: Date) => {
-    if (onDateSelect) {
-      onDateSelect(day);
+    if (onDateSelect && !isDateGreaterThanToday(day)) {
+      onDateSelect(day); // Allow selection only if the date is not greater than today
     }
+  };
+
+  const isCompleted = (date) => {
+    const dateStr = format(date, "yyyy-MM-dd");
+    if (completedDates) {
+      return completedDates.includes(dateStr);
+    }
+  };
+
+  const isDateGreaterThanToday = (date) => {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0); // Reset to midnight
+    date.setHours(0, 0, 0, 0); // Reset to midnight
+    return date > today; // Compare the date
   };
 
   // Get all days in the current month
@@ -89,18 +102,19 @@ const ProgressCalendar = ({ onDateSelect }) => {
           {/* Days of the month */}
           {daysInMonth.map((day) => {
             const dateStr = format(day, "yyyy-MM-dd");
-            const isToday = isSameDay(day, new Date());
-            const isCompleted = completedDates.includes(dateStr);
-
+            const isFutureDate = isDateGreaterThanToday(day);
             return (
               <div
                 key={dateStr}
-                className={`calendar-day ${isToday ? "today" : ""} ${
-                  isCompleted ? "completed" : ""
+                className={`calendar-day ${
+                  isFutureDate ? "text-gray-400 cursor-not-allowed" : ""
                 }`}
                 onClick={() => handleDayClick(day)}
               >
                 <span>{format(day, "d")}</span>
+                {isCompleted(day) && (
+                  <div className="grid w-1.5 h-1.5 bg-green-500 rounded-full"></div>
+                )}
               </div>
             );
           })}

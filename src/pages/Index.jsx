@@ -15,6 +15,7 @@ import { format } from "date-fns";
 const Index = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [currentChallenge, setCurrentChallenge] = useState(null);
+  const [completedDates, setCompletedDates] = useState([]);
   const [evaluateChallenge, setEvaluateChallenge] = useState(null);
   const { toast } = useToast();
 
@@ -54,6 +55,11 @@ const Index = () => {
     return success;
   };*/
 
+  const handleChallengeComplete = (date) => {
+    setCompletedDates((prev) => [...new Set([...prev, date])]); // Add the date if not already present
+    console.log(completedDates);
+  };
+
   const handleDateSelect = (date) => {
     //console.log(date);
     setSelectedDate(date);
@@ -79,7 +85,10 @@ const Index = () => {
             />
           </div>
           <div className="hidden lg:block  space-y-6">
-            <ProgressCalendar onDateSelect={handleDateSelect} />
+            <ProgressCalendar
+              onDateSelect={handleDateSelect}
+              completedDates={completedDates}
+            />
           </div>
 
           {/*<Separator />*/}
@@ -90,10 +99,10 @@ const Index = () => {
                 date={format(selectedDate, "yyyy-MM-dd")}
                 currentChallenge={currentChallenge}
                 starterCode={`function ${currentChallenge.functionName}${currentChallenge.variables}{
-                  // Your code here
+                // Your code here
                 };
                   `}
-                //onCodeSubmit={handleCodeSubmit}
+                onCodeSubmit={handleChallengeComplete}
               />
             )}
           </div>

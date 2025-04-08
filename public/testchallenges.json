@@ -53,11 +53,12 @@
   },
   {
     "id": 14,
-    "date": "2025-03-26",
-    "title": "Countttt Vowels in a String",
+    "date": "2025-04-08",
+    "title": "Count Vowels in a String",
     "difficulty": "Easy",
     "functionName": "countVowels",
     "description": "Write a function that takes a string and returns the count of vowels (a, e, i, o, u) in the string.\n\nThe function should be case-insensitive and should only consider English vowels.",
+    "variables": "(string)",
     "examples": [
       {
         "input": "\"hello\"",

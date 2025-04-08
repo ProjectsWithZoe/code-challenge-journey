@@ -61,6 +61,58 @@ export const testCases = {
       expected: -8,
     },
   ],
+  countVowels: [
+    {
+      name: "Basic word with two vowels",
+      input: ["hello"],
+      expected: 2,
+    },
+    {
+      name: "Word with no vowels",
+      input: ["Why"],
+      expected: 0,
+    },
+    {
+      name: "All uppercase vowels",
+      input: ["AEIOU"],
+      expected: 5,
+    },
+    {
+      name: "Sentence with mixed case vowels",
+      input: ["Python is fun"],
+      expected: 3,
+    },
+    {
+      name: "Empty string",
+      input: [""],
+      expected: 0,
+    },
+    {
+      name: "String with all consonants",
+      input: ["bcdfghjklmnpqrstvwxyz"],
+      expected: 0,
+    },
+    {
+      name: "String with repeating vowels",
+      input: ["aaeeiioouu"],
+      expected: 10,
+    },
+    {
+      name: "Mixed string with numbers and vowels",
+      input: ["123abc456"],
+      expected: 1,
+    },
+    {
+      name: "String with special characters and vowels",
+      input: ["@#e$%^&*o()"],
+      expected: 2,
+    },
+    {
+      name: "Long sentence with various characters",
+      input: ["The quick brown fox jumps over the lazy dog."],
+      expected: 11,
+    },
+  ],
 
   // ... more functions
 };

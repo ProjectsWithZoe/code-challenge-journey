@@ -162,6 +162,9 @@ const CodeEditor = ({
           description:
             "Your solution passed all test cases and has been saved.",
         });
+        if (onCodeSubmit) {
+          onCodeSubmit(currentChallenge.date);
+        }
       } else {
         toast({
           title: "Challenge Not Complete",
