@@ -12,8 +12,6 @@ import { saveCompletedChallenge } from "@/lib/localStorage";
 import { getCompletedChallenges } from "@/lib/localStorage";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
-import { use } from "react";
-import { get } from "http";
 
 const Index = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
