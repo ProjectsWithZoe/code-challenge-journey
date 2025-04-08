@@ -9,8 +9,11 @@ import ProgressCalendar from "@/components/ProgressCalendar";
 import Challenge from "@/components/Challenge";
 import AuthButton from "@/components/AuthButton";
 import { saveCompletedChallenge } from "@/lib/localStorage";
+import { getCompletedChallengeDates } from "@/lib/localStorage";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
+import { use } from "react";
+import { get } from "http";
 
 const Index = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -26,6 +29,15 @@ const Index = () => {
   useEffect(() => {
     console.log(selectedDate);
   }, []);
+
+  useEffect(() => {
+    const savedCompletedDates = getCompletedChallenges();
+    setCompletedDates(savedCompletedDates); // Set the state with the saved dates
+  }, []);
+
+  useEffect(() => {
+    saveCompletedChallenge(completedDates); // Save the updated completedDates to local storage
+  }, [completedDates]);
 
   /*const handleEvaluate = (evaluator) => {
     setEvaluateChallenge(() => evaluator);

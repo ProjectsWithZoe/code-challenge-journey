@@ -1,15 +1,16 @@
-
 // Local storage keys
 const STORAGE_KEYS = {
-  COMPLETED_CHALLENGES: 'completedChallenges',
-  USER_CODE: 'userCode',
-  USER_PROFILE: 'userProfile',
-  LAST_SYNC: 'lastSync'
+  COMPLETED_CHALLENGES: "completedChallenges",
+  USER_CODE: "userCode",
+  USER_PROFILE: "userProfile",
+  LAST_SYNC: "lastSync",
 };
 
 // Get completed challenges from local storage
 export const getCompletedChallenges = (): string[] => {
-  const completedChallenges = localStorage.getItem(STORAGE_KEYS.COMPLETED_CHALLENGES);
+  const completedChallenges = localStorage.getItem(
+    STORAGE_KEYS.COMPLETED_CHALLENGES
+  );
   return completedChallenges ? JSON.parse(completedChallenges) : [];
 };
 
@@ -18,14 +19,26 @@ export const saveCompletedChallenge = (date: string): void => {
   const completedChallenges = getCompletedChallenges();
   if (!completedChallenges.includes(date)) {
     completedChallenges.push(date);
-    localStorage.setItem(STORAGE_KEYS.COMPLETED_CHALLENGES, JSON.stringify(completedChallenges));
+    localStorage.setItem(
+      STORAGE_KEYS.COMPLETED_CHALLENGES,
+      JSON.stringify(completedChallenges)
+    );
   }
+};
+
+// Save an array of completed challenges to local storage
+export const saveCompletedChallenges = (dates: string[]): void => {
+  const uniqueDates = Array.from(new Set(dates)); // Ensure no duplicates
+  localStorage.setItem(
+    STORAGE_KEYS.COMPLETED_CHALLENGES,
+    JSON.stringify(uniqueDates)
+  );
 };
 
 // Get user code for a specific date
 export const getUserCode = (date: string): string => {
   const userCode = localStorage.getItem(`${STORAGE_KEYS.USER_CODE}_${date}`);
-  return userCode || '';
+  return userCode || "";
 };
 
 // Save user code for a specific date
