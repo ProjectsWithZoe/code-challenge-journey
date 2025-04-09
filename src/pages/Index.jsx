@@ -103,9 +103,9 @@ const Index = () => {
         {/*<AuthButton />*/}
       </header>
 
-      <main className=" container pr-4 md:px-6">
-        <div className="grid justify-content-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="col-span-1 md:col-span-2 space-y-6">
+      <main className=" container p-2 md:px-6">
+        <div className="grid justify-content-center grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+          <div className="col-span-1 md:col-span-2 space-y-2">
             <Challenge
               selectedDate={selectedDate}
               onChallengeLoad={handleChallengeLoad}
