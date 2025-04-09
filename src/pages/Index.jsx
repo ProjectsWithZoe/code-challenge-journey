@@ -103,7 +103,7 @@ const Index = () => {
         {/*<AuthButton />*/}
       </header>
 
-      <main className=" container p-10 md:px-6">
+      <main className=" container pr-4 md:px-6">
         <div className="grid md:grid-cols-3 gap-4">
           <div className="col-span-3 lg:col-span-2 space-y-6">
             <Challenge
