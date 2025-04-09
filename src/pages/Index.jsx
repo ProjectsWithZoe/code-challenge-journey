@@ -1,4 +1,5 @@
 import { useEffect, useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { Separator } from "@/components/ui/separator";
@@ -15,17 +16,34 @@ import {
 import { getCompletedChallenges } from "@/lib/localStorage";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
+import { useNavigate } from "react-router-dom";
 
 const Index = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [currentChallenge, setCurrentChallenge] = useState(null);
   const [completedDates, setCompletedDates] = useState([]);
   const [evaluateChallenge, setEvaluateChallenge] = useState(null);
+  const [isMobile, setIsMobile] = useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
-  const handleChallengeLoad = (challenge) => {
-    setCurrentChallenge(challenge);
-  };
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      navigate("/welcome");
+    }
+  }, [isMobile, navigate]);
 
   useEffect(() => {
     console.log(selectedDate);
@@ -68,6 +86,9 @@ const Index = () => {
     
     return success;
   };*/
+  const handleChallengeLoad = (challenge) => {
+    setCurrentChallenge(challenge);
+  };
 
   const handleChallengeComplete = (date) => {
     // If the date is not already in the completed challenges, add it
