@@ -1,11 +1,27 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { getUserCode } from "@/lib/localStorage";
 import { useNavigate } from "react-router-dom";
 
-const WelcomePage = ({ selectedDate, completedDates }) => {
+const WelcomePage = () => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const [completedDates, setCompletedDates] = useState([]);
   const [userCode, setUserCode] = useState("");
+
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // Retrieve selectedDate and completedDates from local storage
+    const savedDate = localStorage.getItem("selectedDate");
+    const savedCompletedDates = localStorage.getItem("completedDates");
+
+    if (savedDate) {
+      setSelectedDate(new Date(savedDate)); // Convert savedDate to a Date object
+    }
+
+    if (savedCompletedDates) {
+      setCompletedDates(JSON.parse(savedCompletedDates)); // Parse the JSON string
+    }
+  }, []);
 
   useEffect(() => {
     // Load the user's code for the selected date

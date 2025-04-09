@@ -40,9 +40,11 @@ const Index = () => {
 
   useEffect(() => {
     if (isMobile) {
+      localStorage.setItem("selectedDate", selectedDate.toISOString());
+      localStorage.setItem("completedDates", JSON.stringify(completedDates));
       navigate("/welcome");
     }
-  }, [isMobile, navigate]);
+  }, [isMobile, navigate, selectedDate, completedDates]);
 
   useEffect(() => {
     console.log(selectedDate);
