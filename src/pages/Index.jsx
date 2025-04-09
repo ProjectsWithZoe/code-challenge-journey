@@ -35,7 +35,7 @@ const Index = () => {
   }, []);
 
   useEffect(() => {
-    saveCompletedChallenge(completedDates); // Save the updated completedDates to local storage
+    saveCompletedChallenges(completedDates); // Save the updated completedDates to local storage
   }, [completedDates]);
 
   /*const handleEvaluate = (evaluator) => {
@@ -67,8 +67,22 @@ const Index = () => {
   };*/
 
   const handleChallengeComplete = (date) => {
-    setCompletedDates((prev) => [...new Set([...prev, date])]); // Add the date if not already present
-    console.log(completedDates);
+    // If the date is not already in the completed challenges, add it
+    if (!completedDates.includes(date)) {
+      const newCompletedDates = [...completedDates, date];
+      setCompletedDates(newCompletedDates); // Update state
+      saveCompletedChallenge(date); // Save to local storage
+      toast({
+        title: "Challenge Completed! 🎉",
+        description: "Your solution has passed all test cases.",
+      });
+    } else {
+      toast({
+        title: "Already Completed",
+        description: "You have already completed this challenge today.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleDateSelect = (date) => {
