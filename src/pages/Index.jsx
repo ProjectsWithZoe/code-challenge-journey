@@ -26,25 +26,7 @@ const Index = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    handleResize(); // Set initial state
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (isMobile) {
-      localStorage.setItem("selectedDate", selectedDate.toISOString());
-      localStorage.setItem("completedDates", JSON.stringify(completedDates));
-      navigate("/welcome");
-    }
-  }, [isMobile, navigate, selectedDate, completedDates]);
+  console.log("Index component rendered");
 
   useEffect(() => {
     console.log(selectedDate);
@@ -114,6 +96,8 @@ const Index = () => {
     //console.log(date);
     setSelectedDate(date);
   };
+
+  if (isMobile) return null;
 
   return (
     <div className="min-h-screen bg-grey-500 text-foreground">

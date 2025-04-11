@@ -6,8 +6,26 @@ const WelcomePage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [completedDates, setCompletedDates] = useState([]);
   const [userCode, setUserCode] = useState("");
-
+  const [isMobile, setIsMobile] = useState(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!isMobile) {
+      navigate("/challenge");
+    }
+  }, [isMobile, navigate]);
 
   useEffect(() => {
     // Retrieve selectedDate and completedDates from local storage
@@ -34,6 +52,14 @@ const WelcomePage = () => {
     selectedDate.toISOString().split("T")[0]
   );
 
+  const handleWelcomeClick = () => {
+    // Handle the click event for the welcome button
+    console.log("Welcome button clicked");
+    localStorage.setItem("hasSeenWelcome", "true");
+
+    navigate("/challenge");
+  };
+
   return (
     <div className="min-h-screen bg-grey-500 text-foreground p-4">
       <header className="border-b px-4 py-3 flex justify-between items-center bg-card">
@@ -57,7 +83,7 @@ const WelcomePage = () => {
             </p>
             <button
               className="bg-blue-500 text-white px-4 py-2 rounded-md"
-              onClick={() => navigate("/")}
+              onClick={handleWelcomeClick}
             >
               Go to Challenge
             </button>

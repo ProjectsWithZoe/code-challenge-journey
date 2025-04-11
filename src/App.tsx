@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import WelcomePage from "./pages/Welcome";
+import { RootLayout } from "./components/Rootlayout";
+import Navbar from "./pages/Navbar";
 
 const queryClient = new QueryClient();
 
@@ -16,9 +18,10 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
+          <Route path="/" element={<WelcomePage />} />
+          <Route path="/challenge" element={<Index />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="/welcome" element={<WelcomePage />} />
+          {/*<Route path="/welcome" element={<WelcomePage />} />*/}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
