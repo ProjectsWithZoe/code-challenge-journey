@@ -360,19 +360,19 @@ export const testCases = {
 
   squareArray: [
     {
-      name: "Array with positive numbers",
-      input: [[1, 2, 3]],
-      expected: [1, 4, 9],
+      name: "positive numbers",
+      input: [3],
+      expected: 9,
     },
     {
-      name: "Array with negative numbers",
-      input: [[-1, -2]],
-      expected: [1, 4],
+      name: " negative numbers",
+      input: [-2],
+      expected: 4,
     },
     {
-      name: "Empty array",
-      input: [[]],
-      expected: [],
+      name: "zero",
+      input: [0],
+      expected: 0,
     },
   ],
 

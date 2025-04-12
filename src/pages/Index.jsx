@@ -26,7 +26,7 @@ const Index = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  console.log("Index component rendered");
+  //console.log("Index component rendered");
 
   useEffect(() => {
     console.log(selectedDate);

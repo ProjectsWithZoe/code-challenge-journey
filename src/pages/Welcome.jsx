@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { getUserCode } from "@/lib/localStorage";
 import { useNavigate } from "react-router-dom";
+import ProgressCalendar from "@/components/ProgressCalendar";
 
 const WelcomePage = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [completedDates, setCompletedDates] = useState([]);
   const [userCode, setUserCode] = useState("");
   const [isMobile, setIsMobile] = useState(true);
+  const [showCalendar, setShowCalendar] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -30,14 +32,16 @@ const WelcomePage = () => {
   useEffect(() => {
     // Retrieve selectedDate and completedDates from local storage
     const savedDate = localStorage.getItem("selectedDate");
-    const savedCompletedDates = localStorage.getItem("completedDates");
+    const savedCompletedChallenges = localStorage.getItem(
+      "completedChallenges"
+    );
 
     if (savedDate) {
       setSelectedDate(new Date(savedDate)); // Convert savedDate to a Date object
     }
 
-    if (savedCompletedDates) {
-      setCompletedDates(JSON.parse(savedCompletedDates)); // Parse the JSON string
+    if (savedCompletedChallenges) {
+      setCompletedDates(JSON.parse(savedCompletedChallenges)); // Parse the JSON string
     }
   }, []);
 
@@ -60,13 +64,17 @@ const WelcomePage = () => {
     navigate("/challenge");
   };
 
+  const handleProgressClick = () => {
+    navigate("/progress");
+  };
+
   return (
     <div className="min-h-screen bg-grey-500 text-foreground p-4">
-      <header className="border-b px-4 py-3 flex justify-between items-center bg-card">
+      <header className="flex border-b px-4 py-3 flex justify-center md:justify-between  items-center bg-card">
         <h1 className="text-xl font-bold">Welcome to Daily Code Challenge</h1>
       </header>
 
-      <main className="container py-6">
+      <main className="flex flex-col container py-6">
         {isChallengeComplete ? (
           <div>
             <h2 className="text-lg font-bold mb-4">Your Submitted Code:</h2>
@@ -88,6 +96,20 @@ const WelcomePage = () => {
               Go to Challenge
             </button>
           </div>
+        )}
+        <button
+          className="align-center bg-blue-500 text-white m-4 p-4 rounded-full "
+          onClick={() => {
+            setShowCalendar(!showCalendar);
+          }}
+        >
+          {showCalendar ? "Hide Progress Calendar" : "Show Progress Calendar"}
+        </button>
+        {showCalendar && (
+          <ProgressCalendar
+            completedDates={completedDates}
+            onDateSelect={(date) => setSelectedDate(date)}
+          />
         )}
       </main>
     </div>
