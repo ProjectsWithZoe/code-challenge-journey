@@ -120,7 +120,7 @@ const WelcomePage = () => {
         )}
         <div className="flex flex-col items-center">
           <button
-            className="w-[80%] align-center bg-blue-500 text-white m-4 p-4 rounded-full "
+            className="w-[80%] align-center justify-center bg-blue-500 text-white m-4 p-4 rounded-full "
             onClick={() => {
               setShowCalendar(!showCalendar);
             }}
