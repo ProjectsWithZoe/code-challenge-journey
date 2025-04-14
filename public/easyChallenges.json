@@ -1,0 +1,427 @@
+[
+  {
+    "id": 1,
+    "date": "2025-04-10",
+    "title": "Sum of Two Numbers",
+    "difficulty": "Easy",
+    "functionName": "sumTwoNumbers",
+    "description": "Write a function that takes two numbers as arguments and returns their sum.\n\nYou may assume the inputs are always valid numbers (integer or float). No need to validate inputs.",
+    "variables": "(a, b)",
+    "examples": [
+      {
+        "input": "a = 1, b = 2",
+        "output": "3",
+        "explanation": "1 + 2 equals 3"
+      },
+      {
+        "input": "a = -5, b = 10",
+        "output": "5",
+        "explanation": "-5 + 10 equals 5"
+      },
+      {
+        "input": "a = 2.5, b = 3.5",
+        "output": "6.0",
+        "explanation": "2.5 + 3.5 equals 6.0"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "date": "2025-04-11",
+    "title": "Check Even or Odd",
+    "difficulty": "Easy",
+    "functionName": "isEven",
+    "description": "Write a function that checks if a given integer is even.\n\nReturn True if even, else False.",
+    "variables": "(n)",
+    "examples": [
+      {
+        "input": "n = 4",
+        "output": "True",
+        "explanation": "4 is even"
+      },
+      {
+        "input": "n = 7",
+        "output": "False",
+        "explanation": "7 is odd"
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "date": "2025-04-12",
+    "title": "Find Maximum Number",
+    "difficulty": "Easy",
+    "functionName": "findMaximum",
+    "description": "Write a function that takes a list of numbers and returns the largest number.",
+    "variables": "(nums)",
+    "examples": [
+      {
+        "input": "nums = [1, 3, 5, 2]",
+        "output": "5",
+        "explanation": "5 is the largest number"
+      },
+      {
+        "input": "nums = [-1, -3, -5]",
+        "output": "-1",
+        "explanation": "-1 is the largest number"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "date": "2025-04-13",
+    "title": "Reverse a String",
+    "difficulty": "Easy",
+    "functionName": "reverseString",
+    "description": "Write a function that takes a string and returns it reversed.",
+    "variables": "(s)",
+    "examples": [
+      {
+        "input": "s = 'hello'",
+        "output": "'olleh'",
+        "explanation": "The string 'hello' reversed is 'olleh'"
+      },
+      {
+        "input": "s = 'Python'",
+        "output": "'nohtyP'",
+        "explanation": "'Python' reversed is 'nohtyP'"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "date": "2025-04-14",
+    "title": "Count Vowels",
+    "difficulty": "Easy",
+    "functionName": "countVowels",
+    "description": "Write a function that counts the number of vowels in a given string.\n\nConsider 'a', 'e', 'i', 'o', 'u' (both uppercase and lowercase) as vowels.",
+    "variables": "(s)",
+    "examples": [
+      {
+        "input": "s = 'hello'",
+        "output": "2",
+        "explanation": "The vowels are 'e' and 'o'"
+      },
+      {
+        "input": "s = 'xyz'",
+        "output": "0",
+        "explanation": "There are no vowels"
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "date": "2025-04-15",
+    "title": "Factorial of a Number",
+    "difficulty": "Easy",
+    "functionName": "factorial",
+    "description": "Write a function that returns the factorial of a non-negative integer n.\n\nFactorial of 0 is 1.",
+    "variables": "(n)",
+    "examples": [
+      {
+        "input": "n = 5",
+        "output": "120",
+        "explanation": "5! = 5×4×3×2×1 = 120"
+      },
+      {
+        "input": "n = 0",
+        "output": "1",
+        "explanation": "0! is defined as 1"
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "date": "2025-04-16",
+    "title": "Find Element in List",
+    "difficulty": "Easy",
+    "functionName": "findElement",
+    "description": "Write a function that checks if a given element exists in a list.\n\nReturn True if it exists, else False.",
+    "variables": "(nums, target)",
+    "examples": [
+      {
+        "input": "nums = [1,2,3], target = 2",
+        "output": "True",
+        "explanation": "2 is in the list"
+      },
+      {
+        "input": "nums = [4,5,6], target = 1",
+        "output": "False",
+        "explanation": "1 is not in the list"
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "date": "2025-04-17",
+    "title": "Check Palindrome",
+    "difficulty": "Easy",
+    "functionName": "isPalindrome",
+    "description": "Write a function that checks if a given string is a palindrome (reads the same forward and backward).\n\nIgnore case.",
+    "variables": "(s)",
+    "examples": [
+      {
+        "input": "s = 'level'",
+        "output": "True",
+        "explanation": "'level' reads the same both ways"
+      },
+      {
+        "input": "s = 'World'",
+        "output": "False",
+        "explanation": "'World' is not a palindrome"
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "date": "2025-04-18",
+    "title": "Square of a Number",
+    "difficulty": "Easy",
+    "functionName": "squareNumber",
+    "description": "Write a function that returns the square of a given number.",
+    "variables": "(n)",
+    "examples": [
+      {
+        "input": "n = 3",
+        "output": "9",
+        "explanation": "3 squared is 9"
+      },
+      {
+        "input": "n = -4",
+        "output": "16",
+        "explanation": "(-4) squared is 16"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "date": "2025-04-19",
+    "title": "Sum of List Elements",
+    "difficulty": "Easy",
+    "functionName": "sumList",
+    "description": "Write a function that takes a list of numbers and returns the sum of all the elements.",
+    "variables": "(nums)",
+    "examples": [
+      {
+        "input": "nums = [1,2,3]",
+        "output": "6",
+        "explanation": "1 + 2 + 3 = 6"
+      },
+      {
+        "input": "nums = [-1,5,4]",
+        "output": "8",
+        "explanation": "-1 + 5 + 4 = 8"
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "date": "2025-04-20",
+    "title": "Convert Celsius to Fahrenheit",
+    "difficulty": "Easy",
+    "functionName": "celsiusToFahrenheit",
+    "description": "Write a function that converts a temperature from Celsius to Fahrenheit.\n\nFormula: F = C × 9/5 + 32",
+    "variables": "(c)",
+    "examples": [
+      {
+        "input": "c = 0",
+        "output": "32.0",
+        "explanation": "0°C equals 32°F"
+      },
+      {
+        "input": "c = 100",
+        "output": "212.0",
+        "explanation": "100°C equals 212°F"
+      }
+    ]
+  },
+  {
+    "id": 12,
+    "date": "2025-04-21",
+    "title": "Get Middle Character",
+    "difficulty": "Easy",
+    "functionName": "getMiddleCharacter",
+    "description": "Write a function that returns the middle character(s) of a string.\n\nIf the length is odd, return the middle character. If even, return the two middle characters.",
+    "variables": "(s)",
+    "examples": [
+      {
+        "input": "s = 'abc'",
+        "output": "'b'",
+        "explanation": "Middle character of 'abc' is 'b'"
+      },
+      {
+        "input": "s = 'abcd'",
+        "output": "'bc'",
+        "explanation": "Middle characters of 'abcd' are 'bc'"
+      }
+    ]
+  },
+  {
+    "id": 13,
+    "date": "2025-04-22",
+    "title": "Count Words in String",
+    "difficulty": "Easy",
+    "functionName": "countWords",
+    "description": "Write a function that counts the number of words in a string separated by spaces.",
+    "variables": "(s)",
+    "examples": [
+      {
+        "input": "s = 'hello world'",
+        "output": "2",
+        "explanation": "Two words separated by space"
+      },
+      {
+        "input": "s = 'one two three'",
+        "output": "3",
+        "explanation": "Three words separated by spaces"
+      }
+    ]
+  },
+  {
+    "id": 14,
+    "date": "2025-04-23",
+    "title": "Check Number in Range",
+    "difficulty": "Easy",
+    "functionName": "inRange",
+    "description": "Write a function that checks whether a number is within a specified inclusive range.",
+    "variables": "(n, start, end)",
+    "examples": [
+      {
+        "input": "n = 5, start = 1, end = 10",
+        "output": "True",
+        "explanation": "5 is between 1 and 10"
+      },
+      {
+        "input": "n = -3, start = 0, end = 5",
+        "output": "False",
+        "explanation": "-3 is not between 0 and 5"
+      }
+    ]
+  },
+  {
+    "id": 15,
+    "date": "2025-04-24",
+    "title": "Sum of Even Numbers in List",
+    "difficulty": "Easy",
+    "functionName": "sumEvenNumbers",
+    "description": "Write a function that returns the sum of all even numbers in a given list.",
+    "variables": "(nums)",
+    "examples": [
+      {
+        "input": "nums = [1,2,3,4]",
+        "output": "6",
+        "explanation": "2 + 4 = 6"
+      },
+      {
+        "input": "nums = [5,7,9]",
+        "output": "0",
+        "explanation": "No even numbers"
+      }
+    ]
+  },
+  {
+    "id": 16,
+    "date": "2025-04-25",
+    "title": "Find Second Largest Number",
+    "difficulty": "Medium",
+    "functionName": "secondLargest",
+    "description": "Write a function that returns the second largest number in a list.\n\nAssume the list contains at least two distinct numbers.",
+    "variables": "(nums)",
+    "examples": [
+      {
+        "input": "nums = [1,3,4,5,0]",
+        "output": "4",
+        "explanation": "5 is the largest, 4 is the second largest"
+      },
+      {
+        "input": "nums = [10,20]",
+        "output": "10",
+        "explanation": "20 is largest, 10 is second"
+      }
+    ]
+  },
+  {
+    "id": 17,
+    "date": "2025-04-26",
+    "title": "Capitalize First Letter of Each Word",
+    "difficulty": "Easy",
+    "functionName": "capitalizeWords",
+    "description": "Write a function that capitalizes the first letter of each word in a string.",
+    "variables": "(s)",
+    "examples": [
+      {
+        "input": "s = 'hello world'",
+        "output": "'Hello World'",
+        "explanation": "Each word's first letter is capitalized"
+      },
+      {
+        "input": "s = 'python is fun'",
+        "output": "'Python Is Fun'",
+        "explanation": "Each word's first letter is capitalized"
+      }
+    ]
+  },
+  {
+    "id": 18,
+    "date": "2025-04-27",
+    "title": "Find Common Elements",
+    "difficulty": "Easy",
+    "functionName": "commonElements",
+    "description": "Write a function that returns a list of common elements between two lists.",
+    "variables": "(list1, list2)",
+    "examples": [
+      {
+        "input": "list1 = [1,2,3], list2 = [2,3,4]",
+        "output": "[2, 3]",
+        "explanation": "2 and 3 are common"
+      },
+      {
+        "input": "list1 = [5,6], list2 = [7,8]",
+        "output": "[]",
+        "explanation": "No common elements"
+      }
+    ]
+  },
+  {
+    "id": 19,
+    "date": "2025-04-28",
+    "title": "Calculate Power of a Number",
+    "difficulty": "Easy",
+    "functionName": "power",
+    "description": "Write a function that returns the result of a number raised to a given power.",
+    "variables": "(base, exponent)",
+    "examples": [
+      {
+        "input": "base = 2, exponent = 3",
+        "output": "8",
+        "explanation": "2^3 = 8"
+      },
+      {
+        "input": "base = 5, exponent = 0",
+        "output": "1",
+        "explanation": "Any number to the power of 0 is 1"
+      }
+    ]
+  },
+  {
+    "id": 20,
+    "date": "2025-04-29",
+    "title": "Sum of Digits",
+    "difficulty": "Easy",
+    "functionName": "sumOfDigits",
+    "description": "Write a function that returns the sum of the digits of a positive integer.",
+    "variables": "(n)",
+    "examples": [
+      {
+        "input": "n = 123",
+        "output": "6",
+        "explanation": "1+2+3 = 6"
+      },
+      {
+        "input": "n = 0",
+        "output": "0",
+        "explanation": "Sum of digits of 0 is 0"
+      }
+    ]
+  }
+]

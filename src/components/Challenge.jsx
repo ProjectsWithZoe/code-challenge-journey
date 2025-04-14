@@ -22,7 +22,8 @@ const Challenge = ({ selectedDate, onChallengeLoad }) => {
         const response = await fetch("./testchallenges.json", {
           cache: "no-cache",
           headers: {
-            "Cache-Control": "no-cache, no-store, must-revalidate",
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
             Pragma: "no-cache",
             Expires: "0",
           },
