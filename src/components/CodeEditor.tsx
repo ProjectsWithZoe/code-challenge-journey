@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Editor from "@monaco-editor/react";
 import { Button } from "@/components/ui/button";
 import { saveUserCode, getUserCode } from "@/lib/localStorage";
@@ -6,6 +7,7 @@ import { Check, Play, RotateCcw } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { runTests } from "@/utils/testRunner";
 import { testCases } from "@/utils/testCases";
+import confetti from "canvas-confetti"; // Import the confetti library
 
 const CodeEditor = ({
   date,
@@ -18,6 +20,8 @@ const CodeEditor = ({
   const [code, setCode] = useState(starterCode);
   const [isRunning, setIsRunning] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitBtnClicked, setSubmitBtnClicked] = useState(false);
+  const navigate = useNavigate();
   const { toast } = useToast();
 
   useEffect(() => {
@@ -82,6 +86,14 @@ const CodeEditor = ({
     if (value !== undefined) {
       setCode(value);
     }
+  };
+
+  const throwConfetti = () => {
+    confetti({
+      particleCount: 200,
+      spread: 90,
+      origin: { y: 0.6 },
+    });
   };
 
   const handleRun = () => {
@@ -164,6 +176,11 @@ const CodeEditor = ({
         });
         if (onCodeSubmit) {
           onCodeSubmit(currentChallenge.date);
+          throwConfetti(); // Call the confetti function
+          setSubmitBtnClicked(true);
+          setTimeout(() => {
+            navigate("/");
+          }, 3000);
         }
       } else {
         toast({
@@ -211,7 +228,7 @@ const CodeEditor = ({
             variant="outline"
             size="sm"
             onClick={handleRun}
-            disabled={isRunning}
+            disabled={submitBtnClicked}
             title="Run Code"
           >
             <Play className="h-4 w-4 mr-1" />
@@ -221,7 +238,7 @@ const CodeEditor = ({
             variant="default"
             size="sm"
             onClick={handleSubmit}
-            disabled={isSubmitting}
+            disabled={isSubmitting || submitBtnClicked}
             title="Submit Solution"
           >
             <Check className="h-4 w-4 mr-1" />

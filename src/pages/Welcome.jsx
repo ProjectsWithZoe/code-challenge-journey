@@ -104,7 +104,7 @@ const WelcomePage = () => {
             </button>
           </div>
         ) : (
-          <div>
+          <div className="flex flex-col items-center">
             <div>
               <p className="mb-4">
                 You haven't completed today's challenge yet.
