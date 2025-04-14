@@ -19,15 +19,7 @@ const Challenge = ({ selectedDate, onChallengeLoad }) => {
     const fetchChallenge = async () => {
       setLoading(true);
       try {
-        const response = await fetch("./testchallenges.json", {
-          cache: "no-cache",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-            Pragma: "no-cache",
-            Expires: "0",
-          },
-        });
+        const response = await fetch("./api/challenges");
         if (!response.ok) {
           throw new Error("Failed to fetch challenges");
         }
