@@ -19,39 +19,43 @@ const Challenge = ({ selectedDate, onChallengeLoad }) => {
     const fetchChallenge = async () => {
       setLoading(true);
       try {
-        const response = await fetch("./api/challenges");
+        const formattedDate = format(selectedDate, "yyyy-MM-dd");
+
+        const response = await fetch(
+          `./api/challenges?selectedDate=${formattedDate}`
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch challenges");
         }
 
-        const challenges = await response.json();
-        //console.log(challenges[0]);
+        const matchedChallenge = await response.json();
+        console.log(matchedChallenge);
 
-        if (selectedDate) {
+        /*if (selectedDate) {
           //console.log(selectedDate);
           const formattedDate = format(selectedDate, "yyyy-MM-dd");
           console.log(formattedDate);
           const matchedChallenge = challenges.find(
             (c) => c.date === formattedDate
           );
-          console.log(matchedChallenge);
+          console.log(matchedChallenge);*/
 
-          if (matchedChallenge) {
-            console.log("Matched challenge:", matchedChallenge);
-            setChallenge(matchedChallenge);
-            onChallengeLoad?.(matchedChallenge);
-          } else {
-            setChallenge(challenges[0]);
-            onChallengeLoad?.(challenges[0]);
-          }
+        if (matchedChallenge) {
+          console.log("Matched challenge:", matchedChallenge);
+          setChallenge(matchedChallenge);
+          onChallengeLoad?.(matchedChallenge);
         } else {
+          setChallenge(null);
+          onChallengeLoad?.(null);
+        }
+      } /*else {
           console.log("No date selected");
           // If no date is selected, load the first challenge
           console.log(challenges[0]);
           setChallenge(challenges[0]);
           onChallengeLoad?.(challenges[0]);
-        }
-      } catch (err) {
+        
+      }*/ catch (err) {
         console.error("Error fetching challenge:", err);
         setError(
           err instanceof Error ? err.message : "Failed to fetch challenge"
