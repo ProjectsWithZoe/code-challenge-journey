@@ -7,7 +7,6 @@ import { Check, Play, RotateCcw } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { runTests } from "@/utils/testRunner";
 import { testCases } from "@/utils/testCases";
-import confetti from "canvas-confetti"; // Import the confetti library
 
 const CodeEditor = ({
   date,
@@ -86,14 +85,6 @@ const CodeEditor = ({
     if (value !== undefined) {
       setCode(value);
     }
-  };
-
-  const throwConfetti = () => {
-    confetti({
-      particleCount: 200,
-      spread: 90,
-      origin: { y: 0.6 },
-    });
   };
 
   const handleRun = () => {
@@ -176,7 +167,6 @@ const CodeEditor = ({
         });
         if (onCodeSubmit) {
           onCodeSubmit(currentChallenge.date);
-          throwConfetti(); // Call the confetti function
           setSubmitBtnClicked(true);
           setTimeout(() => {
             navigate("/");

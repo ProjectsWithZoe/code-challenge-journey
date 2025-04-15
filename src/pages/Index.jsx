@@ -16,6 +16,7 @@ import { getCompletedChallenges } from "@/lib/localStorage";
 import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
+import confetti from "canvas-confetti"; // Import the confetti library
 
 const Index = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -25,6 +26,14 @@ const Index = () => {
   const [isMobile, setIsMobile] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
+
+  const throwConfetti = () => {
+    confetti({
+      particleCount: 200,
+      spread: 90,
+      origin: { y: 0.6 },
+    });
+  };
 
   //console.log("Index component rendered");
 
@@ -79,6 +88,7 @@ const Index = () => {
       const newCompletedDates = [...completedDates, date];
       setCompletedDates(newCompletedDates); // Update state
       saveCompletedChallenge(date); // Save to local storage
+      throwConfetti(); // Call the confetti function
       toast({
         title: "Challenge Completed! 🎉",
         description: "Your solution has passed all test cases.",

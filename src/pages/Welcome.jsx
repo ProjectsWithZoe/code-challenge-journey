@@ -64,13 +64,9 @@ const WelcomePage = () => {
   const handleWelcomeClick = () => {
     // Handle the click event for the welcome button
     console.log("Welcome button clicked");
-    localStorage.setItem("hasSeenWelcome", "true");
+    //localStorage.setItem("hasSeenWelcome", "true");
 
     navigate("/challenge");
-  };
-
-  const handleProgressClick = () => {
-    navigate("/progress");
   };
 
   const handleShowChallenge = () => {
