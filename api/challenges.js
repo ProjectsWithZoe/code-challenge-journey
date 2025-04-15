@@ -2,6 +2,16 @@ import { promises as fs } from "fs";
 import path from "path";
 
 export async function GET(request) {
+  const apiKey = request.headers.get("x-api-key");
+  if (apiKey !== process.env.CHALLENGE_API_KEY) {
+    return new Response("Unauthorized", {
+      status: 401,
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+  }
+
   const filePath = path.join(process.cwd(), "data", "testchallenges.json");
   const fileContents = await fs.readFile(filePath, "utf8");
   const challenges = JSON.parse(fileContents);
