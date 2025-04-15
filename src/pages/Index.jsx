@@ -126,7 +126,7 @@ const Index = ({ isMobile }) => {
       throwConfetti(); // Call the confetti function
       if (isMobile) {
         setTimeout(() => {
-          navigate("/welcome");
+          navigate("/");
         }, 2000); // Redirect after 2 seconds
       }
       toast({
