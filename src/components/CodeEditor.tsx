@@ -73,13 +73,13 @@ const CodeEditor = ({
   }, []);*/
 
   // Auto-save code changes
-  useEffect(() => {
+  /*useEffect(() => {
     const timeoutId = setTimeout(() => {
       saveUserCode(date, code);
     }, 1000);
 
     return () => clearTimeout(timeoutId);
-  }, [code, date]);
+  }, [code, date]);*/
 
   const handleEditorChange = (value: string | undefined) => {
     if (value !== undefined) {
@@ -190,7 +190,7 @@ const CodeEditor = ({
 
   const handleReset = () => {
     setCode(starterCode);
-    saveUserCode(date, starterCode);
+    //saveUserCode(date, starterCode);
     toast({
       title: "Reset",
       description: "Code has been reset to starter code.",
