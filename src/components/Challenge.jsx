@@ -22,7 +22,12 @@ const Challenge = ({ selectedDate, onChallengeLoad }) => {
         const formattedDate = format(selectedDate, "yyyy-MM-dd");
 
         const response = await fetch(
-          `./api/challenges?selectedDate=${formattedDate}`
+          `./api/challenges?selectedDate=${formattedDate}`,
+          {
+            headers: {
+              "x-api-key": process.env.VITE_CHALLENGE_API_KEY,
+            },
+          }
         );
         if (!response.ok) {
           throw new Error("Failed to fetch challenges");
