@@ -90,7 +90,7 @@ const WelcomePage = ({ isMobile }) => {
         ) : (
           <div className="flex flex-col items-center">
             <div>
-              <p className="mb-4">
+              <p className="flex mb-2 justify-center">
                 You haven't completed today's challenge yet.
               </p>
             </div>
@@ -120,7 +120,7 @@ const WelcomePage = ({ isMobile }) => {
         )}
 
         {showChallenge && (
-          <div className="w-full bg-gray-100 p-4 rounded-lg shadow-md">
+          <div className="w-full bg-blue-200 p-2 rounded-lg shadow-md">
             <pre className="whitespace-pre-wrap">{userCode}</pre>
           </div>
         )}
