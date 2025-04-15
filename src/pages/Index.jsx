@@ -22,6 +22,7 @@ const Index = ({ isMobile }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [currentChallenge, setCurrentChallenge] = useState(null);
   const [completedDates, setCompletedDates] = useState([]);
+  const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [evaluateChallenge, setEvaluateChallenge] = useState(null);
   //const [isMobile, setIsMobile] = useState(false);
   const [redirecting, setRedirecting] = useState(false);
@@ -37,6 +38,38 @@ const Index = ({ isMobile }) => {
   };
 
   //console.log("Index component rendered");
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+
+      toast("Install Daily Code Challenge?", {
+        action: {
+          label: "Install",
+          onClick: () => {
+            e.prompt();
+            e.userChoice.then((choiceResult) => {
+              if (choiceResult.outcome === "accepted") {
+                toast.success("App installed successfully!");
+              } else {
+                toast("App installation dismissed.");
+              }
+              setDeferredPrompt(null);
+            });
+          },
+        },
+      });
+    };
+
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    return () => {
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
+    };
+  }, []);
 
   useEffect(() => {
     console.log(selectedDate);
@@ -113,38 +146,6 @@ const Index = ({ isMobile }) => {
     //console.log(date);
     setSelectedDate(date);
   };
-
-  useEffect(() => {
-    const handleBeforeInstallPrompt = (e) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-
-      toast("Install Daily Code Challenge?", {
-        action: {
-          label: "Install",
-          onClick: () => {
-            e.prompt();
-            e.userChoice.then((choiceResult) => {
-              if (choiceResult.outcome === "accepted") {
-                toast.success("App installed successfully!");
-              } else {
-                toast("App installation dismissed.");
-              }
-              setDeferredPrompt(null);
-            });
-          },
-        },
-      });
-    };
-
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-    return () => {
-      window.removeEventListener(
-        "beforeinstallprompt",
-        handleBeforeInstallPrompt
-      );
-    };
-  }, []);
 
   if (isMobile) return null;
 
