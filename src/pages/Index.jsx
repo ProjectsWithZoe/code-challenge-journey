@@ -114,6 +114,38 @@ const Index = ({ isMobile }) => {
     setSelectedDate(date);
   };
 
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+
+      toast("Install Daily Code Challenge?", {
+        action: {
+          label: "Install",
+          onClick: () => {
+            e.prompt();
+            e.userChoice.then((choiceResult) => {
+              if (choiceResult.outcome === "accepted") {
+                toast.success("App installed successfully!");
+              } else {
+                toast("App installation dismissed.");
+              }
+              setDeferredPrompt(null);
+            });
+          },
+        },
+      });
+    };
+
+    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
+    return () => {
+      window.removeEventListener(
+        "beforeinstallprompt",
+        handleBeforeInstallPrompt
+      );
+    };
+  }, []);
+
   if (isMobile) return null;
 
   return (
