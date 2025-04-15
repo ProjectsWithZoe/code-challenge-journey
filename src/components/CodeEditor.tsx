@@ -168,9 +168,6 @@ const CodeEditor = ({
         if (onCodeSubmit) {
           onCodeSubmit(currentChallenge.date);
           setSubmitBtnClicked(true);
-          setTimeout(() => {
-            navigate("/");
-          }, 3000);
         }
       } else {
         toast({

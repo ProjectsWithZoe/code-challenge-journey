@@ -24,6 +24,7 @@ const Index = () => {
   const [completedDates, setCompletedDates] = useState([]);
   const [evaluateChallenge, setEvaluateChallenge] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
+  const [redirecting, setRedirecting] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -34,6 +35,18 @@ const Index = () => {
       origin: { y: 0.6 },
     });
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    handleResize(); // Set initial state
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
 
   //console.log("Index component rendered");
 
@@ -88,7 +101,13 @@ const Index = () => {
       const newCompletedDates = [...completedDates, date];
       setCompletedDates(newCompletedDates); // Update state
       saveCompletedChallenge(date); // Save to local storage
+      setRedirecting(true); // Set redirecting state to true
       throwConfetti(); // Call the confetti function
+      if (isMobile) {
+        setTimeout(() => {
+          navigate("/welcome");
+        }, 2000); // Redirect after 2 seconds
+      }
       toast({
         title: "Challenge Completed! 🎉",
         description: "Your solution has passed all test cases.",

@@ -3,26 +3,13 @@ import { getUserCode } from "@/lib/localStorage";
 import { useNavigate } from "react-router-dom";
 import ProgressCalendar from "@/components/ProgressCalendar";
 
-const WelcomePage = () => {
+const WelcomePage = ({ isMobile }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [completedDates, setCompletedDates] = useState([]);
   const [userCode, setUserCode] = useState("");
-  const [isMobile, setIsMobile] = useState(true);
   const [showCalendar, setShowCalendar] = useState(false);
   const [showChallenge, setShowChallenge] = useState(false);
   const navigate = useNavigate();
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    handleResize(); // Set initial state
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   useEffect(() => {
     if (!isMobile) {
