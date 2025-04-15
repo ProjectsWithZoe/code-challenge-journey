@@ -49,6 +49,14 @@ const WelcomePage = ({ isMobile }) => {
     selectedDate.toISOString().split("T")[0]
   );
 
+  console.log("Completed Dates:", completedDates);
+  console.log("Current Date:", selectedDate.toISOString().split("T")[0]);
+  console.log(
+    "Is Challenge Complete:",
+    completedDates.includes(selectedDate.toISOString().split("T")[0])
+  );
+  console.log("Selected Date:", selectedDate.toISOString().split("T")[0]);
+
   const handleWelcomeClick = () => {
     // Handle the click event for the welcome button
     console.log("Welcome button clicked");
