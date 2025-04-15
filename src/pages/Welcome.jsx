@@ -49,7 +49,7 @@ const WelcomePage = ({ isMobile }) => {
     selectedDate.toISOString().split("T")[0]
   );
 
-  console.log("Completed Dates:", completedDates);
+  console.log("Completed Datess:", completedDates);
   console.log("Current Date:", selectedDate.toISOString().split("T")[0]);
   console.log(
     "Is Challenge Complete:",
