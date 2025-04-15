@@ -147,7 +147,7 @@ const Index = ({ isMobile }) => {
     setSelectedDate(date);
   };
 
-  if (isMobile) return null;
+  //if (isMobile) return null;
 
   return (
     <div className="min-h-screen bg-grey-500 text-foreground">
