@@ -41,6 +41,7 @@ const WelcomePage = ({ isMobile }) => {
     // Load the user's code for the selected date
     const formattedDate = selectedDate.toISOString().split("T")[0];
     const code = getUserCode(formattedDate);
+    console.log("User code for selected date:", code);
     setUserCode(code);
   }, [selectedDate]);
 

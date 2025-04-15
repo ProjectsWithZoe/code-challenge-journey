@@ -39,6 +39,7 @@ export const saveCompletedChallenges = (dates: string[]): void => {
 // Get user code for a specific date
 export const getUserCode = (date: string): string => {
   const userCode = localStorage.getItem(`${STORAGE_KEYS.USER_CODE}_${date}`);
+  console.log("Retrieved user code from localStorage:", userCode); // Debug log
   return userCode || "";
 };
 
