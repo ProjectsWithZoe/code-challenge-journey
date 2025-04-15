@@ -12,7 +12,7 @@ import { useEffect, useState } from "react";
 const queryClient = new QueryClient();
 
 const App = () => {
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
