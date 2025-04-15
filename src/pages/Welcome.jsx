@@ -18,6 +18,10 @@ const WelcomePage = ({ isMobile }) => {
   }, [isMobile, navigate]);
 
   useEffect(() => {
+    setSelectedDate(new Date());
+  }, []);
+
+  useEffect(() => {
     // Retrieve selectedDate and completedDates from local storage
     //const savedDate = localStorage.getItem("selectedDate");
     const savedCompletedChallenges = localStorage.getItem(
@@ -45,9 +49,9 @@ const WelcomePage = ({ isMobile }) => {
     setUserCode(code);
   }, [selectedDate]);
 
-  const isChallengeComplete = completedDates.includes(
-    selectedDate.toISOString().split("T")[0]
-  );
+  const todayDateString = new Date().toISOString().split("T")[0];
+
+  const isChallengeComplete = completedDates.includes(todayDateString);
 
   console.log("Completed Datess:", completedDates);
   console.log("Current Date:", selectedDate.toISOString().split("T")[0]);
