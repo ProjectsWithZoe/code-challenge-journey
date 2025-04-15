@@ -18,12 +18,12 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti"; // Import the confetti library
 
-const Index = () => {
+const Index = (isMobile) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [currentChallenge, setCurrentChallenge] = useState(null);
   const [completedDates, setCompletedDates] = useState([]);
   const [evaluateChallenge, setEvaluateChallenge] = useState(null);
-  const [isMobile, setIsMobile] = useState(false);
+  //const [isMobile, setIsMobile] = useState(false);
   const [redirecting, setRedirecting] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -35,18 +35,6 @@ const Index = () => {
       origin: { y: 0.6 },
     });
   };
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    handleResize(); // Set initial state
-    window.addEventListener("resize", handleResize);
-
-    return () => {
-      window.removeEventListener("resize", handleResize);
-    };
-  }, []);
 
   //console.log("Index component rendered");
 
