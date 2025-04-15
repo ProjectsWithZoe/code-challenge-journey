@@ -18,7 +18,7 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti"; // Import the confetti library
 
-const Index = (isMobile) => {
+const Index = ({ isMobile }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [currentChallenge, setCurrentChallenge] = useState(null);
   const [completedDates, setCompletedDates] = useState([]);
