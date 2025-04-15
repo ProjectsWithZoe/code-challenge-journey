@@ -2,7 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 
 export async function GET(request) {
-  const apiKey = request.headers.get("x-api-key");
+  const apiKey = request.headers.get("X-api-key");
   if (apiKey !== process.env.CHALLENGE_API_KEY) {
     return new Response("Unauthorized", {
       status: 401,

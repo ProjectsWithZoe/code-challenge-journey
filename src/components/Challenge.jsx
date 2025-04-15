@@ -25,7 +25,7 @@ const Challenge = ({ selectedDate, onChallengeLoad }) => {
           `./api/challenges?selectedDate=${formattedDate}`,
           {
             headers: {
-              "x-api-key": process.env.VITE_CHALLENGE_API_KEY,
+              "X-api-key": process.env.VITE_CHALLENGE_API_KEY,
             },
           }
         );
