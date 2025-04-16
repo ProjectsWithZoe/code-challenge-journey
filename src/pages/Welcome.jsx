@@ -75,7 +75,7 @@ const WelcomePage = ({ isMobile }) => {
 
   return (
     <div className="min-h-screen bg-grey-500 text-foreground flex flex-col justify-center p-4">
-      <header className="flex flex-col border-b px-4 py-3 bg-card">
+      <header className="flex flex-col border-b py-3 bg-card">
         <h1 className="flex text-xl font-bold justify-center overflow-auto">
           ✨ Welcome to Daily Code Challenge ✨
         </h1>
