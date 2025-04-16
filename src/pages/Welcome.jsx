@@ -88,7 +88,7 @@ const WelcomePage = ({ isMobile }) => {
         {isChallengeComplete ? (
           <div className="flex flex-col items-center">
             <div>
-              <p className="flex mb-2 justify-center">
+              <p className="flex mb-2 justify-center text-green-500 text-lg">
                 Today's challenge is complete! 🎉
               </p>
             </div>
@@ -102,7 +102,7 @@ const WelcomePage = ({ isMobile }) => {
         ) : (
           <div className="flex flex-col items-center">
             <div>
-              <p className="flex mb-2 justify-center">
+              <p className="flex mb-2 justify-center text-red-500 text-lg">
                 You haven't completed today's challenge yet.
               </p>
             </div>
