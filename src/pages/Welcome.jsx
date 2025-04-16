@@ -75,11 +75,11 @@ const WelcomePage = ({ isMobile }) => {
 
   return (
     <div className="min-h-screen bg-grey-500 text-foreground flex flex-col justify-center p-4">
-      <header className="flex flex-col border-b py-3 bg-card">
+      <div className="flex flex-col border-b py-3 bg-card">
         <h1 className="flex text-xl font-bold justify-center overflow-auto">
           ✨ Daily Code Challenge ✨
         </h1>
-      </header>
+      </div>
 
       <main className="flex flex-col justify-center container py-6">
         <div className="flex text-2xl font-bold justify-center mb-4">
@@ -88,7 +88,7 @@ const WelcomePage = ({ isMobile }) => {
         {isChallengeComplete ? (
           <div className="flex flex-col items-center">
             <div>
-              <p className="flex mb-4 justify-center">
+              <p className="flex mb-2 justify-center">
                 Today's challenge is complete! 🎉
               </p>
             </div>
