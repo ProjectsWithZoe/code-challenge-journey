@@ -40,38 +40,6 @@ const Index = ({ isMobile }) => {
   //console.log("Index component rendered");
 
   useEffect(() => {
-    const handleBeforeInstallPrompt = (e) => {
-      e.preventDefault();
-      setDeferredPrompt(e);
-
-      toast("Install Daily Code Challenge?", {
-        action: {
-          label: "Install",
-          onClick: () => {
-            e.prompt();
-            e.userChoice.then((choiceResult) => {
-              if (choiceResult.outcome === "accepted") {
-                toast.success("App installed successfully!");
-              } else {
-                toast("App installation dismissed.");
-              }
-              setDeferredPrompt(null);
-            });
-          },
-        },
-      });
-    };
-
-    window.addEventListener("beforeinstallprompt", handleBeforeInstallPrompt);
-    return () => {
-      window.removeEventListener(
-        "beforeinstallprompt",
-        handleBeforeInstallPrompt
-      );
-    };
-  }, []);
-
-  useEffect(() => {
     console.log(selectedDate);
   }, []);
 
@@ -170,8 +138,11 @@ const Index = ({ isMobile }) => {
           </div>
           <div className="hidden md:block  space-y-6">
             <ProgressCalendar
-              onDateSelect={handleDateSelect}
               completedDates={completedDates}
+              onDateSelect={(date) => {
+                console.log("Date selected:", date);
+                setSelectedDate(date);
+              }}
             />
           </div>
 
