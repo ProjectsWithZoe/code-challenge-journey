@@ -20,6 +20,7 @@ const Challenge = ({ selectedDate, onChallengeLoad }) => {
       setLoading(true);
       try {
         const formattedDate = format(selectedDate, "yyyy-MM-dd");
+        console.log("Formatted date:", formattedDate);
 
         const response = await fetch(
           `./api/challenges?selectedDate=${formattedDate}`,
