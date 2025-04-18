@@ -51,6 +51,7 @@ const WelcomePage = ({ isMobile }) => {
 
   const todayDateString = new Date().toISOString().split("T")[0];
   console.log(todayDateString);
+  console.log(selectedDate.toISOString().split("T")[0]);
 
   const isChallengeComplete = completedDates.includes(todayDateString);
 
