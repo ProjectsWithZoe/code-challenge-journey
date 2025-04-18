@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { getUserCode } from "@/lib/localStorage";
 import { useNavigate } from "react-router-dom";
 import ProgressCalendar from "@/components/ProgressCalendar";
+import { format } from "date-fns";
 
 const WelcomePage = ({ isMobile }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -43,15 +44,15 @@ const WelcomePage = ({ isMobile }) => {
 
   useEffect(() => {
     // Load the user's code for the selected date
-    const formattedDate = selectedDate.toISOString().split("T")[0];
+    const formattedDate = format(selectedDate, "yyyy-MM-dd");
     const code = getUserCode(formattedDate);
     console.log("User code for selected date:", code);
     setUserCode(code);
   }, [selectedDate]);
 
-  const todayDateString = new Date().toISOString().split("T")[0];
+  const todayDateString = format(new Date(), "yyyy-MM-dd");
   console.log(todayDateString);
-  console.log(selectedDate.toISOString().split("T")[0]);
+  console.log(format(selectedDate, "yyyy-MM-dd"));
 
   const isChallengeComplete = completedDates.includes(todayDateString);
 
