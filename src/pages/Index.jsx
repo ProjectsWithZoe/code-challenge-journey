@@ -115,8 +115,6 @@ const Index = ({ isMobile }) => {
     setSelectedDate(date);
   };
 
-  //if (isMobile) return null;
-
   return (
     <div className="min-h-screen bg-grey-500 text-foreground">
       <header className="border-b px-4 py-3 flex justify-between items-center bg-card">

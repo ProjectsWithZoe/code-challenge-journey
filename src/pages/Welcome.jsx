@@ -70,6 +70,11 @@ const WelcomePage = ({ isMobile }) => {
     setShowChallenge(!showChallenge);
   };
 
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
+    navigate("/challenge");
+  };
+
   return (
     <div className="min-h-screen bg-grey-500 text-foreground flex flex-col justify-center p-4">
       <div className="flex flex-col border-b py-3 bg-card">
@@ -124,7 +129,7 @@ const WelcomePage = ({ isMobile }) => {
         {showCalendar && (
           <ProgressCalendar
             completedDates={completedDates}
-            onDateSelect={(date) => setSelectedDate(date)}
+            onDateSelect={handleDateSelect}
           />
         )}
 
