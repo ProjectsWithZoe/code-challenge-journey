@@ -139,10 +139,7 @@ const Index = ({ isMobile }) => {
           <div className="hidden md:block  space-y-6">
             <ProgressCalendar
               completedDates={completedDates}
-              onDateSelect={(date) => {
-                console.log("Date selected:", date);
-                setSelectedDate(date);
-              }}
+              onDateSelect={handleDateSelect}
             />
           </div>
 
