@@ -50,6 +50,49 @@ const WelcomePage = ({ isMobile }) => {
     setUserCode(code);
   }, [selectedDate]);
 
+  useEffect(() => {
+    const fetchChallenge = async () => {
+      setLoading(true);
+      try {
+        const formattedDate = format(selectedDate, "yyyy-MM-dd");
+        console.log("Formatted date:", formattedDate);
+
+        const response = await fetch(
+          `./api/challenges?selectedDate=${formattedDate}`,
+          {
+            headers: {
+              "X-api-key": import.meta.env.VITE_CHALLENGE_API_KEY,
+            },
+          }
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch challenges");
+        }
+
+        const matchedChallenge = await response.json();
+        console.log(matchedChallenge);
+
+        if (matchedChallenge) {
+          console.log("Matched challenge:", matchedChallenge);
+          setChallenge(matchedChallenge);
+          onChallengeLoad?.(matchedChallenge);
+        } else {
+          setChallenge(null);
+          onChallengeLoad?.(null);
+        }
+      } catch (err) {
+        console.error("Error fetching challenge:", err);
+        setError(
+          err instanceof Error ? err.message : "Failed to fetch challenge"
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchChallenge();
+  }, [selectedDate]);
+
   const todayDateString = format(new Date(), "yyyy-MM-dd");
   console.log(todayDateString);
   console.log(format(selectedDate, "yyyy-MM-dd"));
