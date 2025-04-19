@@ -1,3 +1,5 @@
+import { create } from "zustand";
+
 const useChallengeStore = create((set) => ({
   selectedDate: new Date(),
   completedDates: [],
@@ -6,5 +8,4 @@ const useChallengeStore = create((set) => ({
   setCompletedDates: (dates) => set({ completedDates: dates }),
   setCurrentChallenge: (challenge) => set({ currentChallenge: challenge }),
 }));
-
 export default useChallengeStore;
