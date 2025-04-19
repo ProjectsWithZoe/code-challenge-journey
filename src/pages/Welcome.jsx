@@ -3,7 +3,7 @@ import { getUserCode } from "@/lib/localStorage";
 import { useNavigate } from "react-router-dom";
 import ProgressCalendar from "@/components/ProgressCalendar";
 import { format } from "date-fns";
-import { useChallengeStore } from "@/hooks/useChallengeStore";
+import useChallengeStore from "@/hooks/useChallengeStore";
 
 const WelcomePage = ({ isMobile }) => {
   //const [selectedDate, setSelectedDate] = useState(new Date());

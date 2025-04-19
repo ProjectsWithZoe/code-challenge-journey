@@ -17,7 +17,7 @@ import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti"; // Import the confetti library
-import { useChallengeStore } from "@/hooks/useChallengeStore";
+import useChallengeStore from "@/hooks/useChallengeStore";
 
 const Index = ({ isMobile }) => {
   //const [selectedDate, setSelectedDate] = useState(new Date());
