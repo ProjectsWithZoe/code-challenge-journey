@@ -17,15 +17,22 @@ import { useToast } from "@/hooks/use-toast";
 import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti"; // Import the confetti library
+import { useChallengeStore } from "@/hooks/useChallengeStore";
 
 const Index = ({ isMobile }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [currentChallenge, setCurrentChallenge] = useState(null);
+  //const [selectedDate, setSelectedDate] = useState(new Date());
+  //const [currentChallenge, setCurrentChallenge] = useState(null);
   const [completedDates, setCompletedDates] = useState([]);
   const [deferredPrompt, setDeferredPrompt] = useState(null);
   const [evaluateChallenge, setEvaluateChallenge] = useState(null);
   //const [isMobile, setIsMobile] = useState(false);
   const [redirecting, setRedirecting] = useState(false);
+  const {
+    selectedDate,
+    setSelectedDate,
+    currentChallenge,
+    setCurrentChallenge,
+  } = useChallengeStore();
   const { toast } = useToast();
   const navigate = useNavigate();
 

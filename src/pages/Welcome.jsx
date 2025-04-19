@@ -3,10 +3,14 @@ import { getUserCode } from "@/lib/localStorage";
 import { useNavigate } from "react-router-dom";
 import ProgressCalendar from "@/components/ProgressCalendar";
 import { format } from "date-fns";
+import { useChallengeStore } from "@/hooks/useChallengeStore";
 
 const WelcomePage = ({ isMobile }) => {
-  const [selectedDate, setSelectedDate] = useState(new Date());
-  const [completedDates, setCompletedDates] = useState([]);
+  //const [selectedDate, setSelectedDate] = useState(new Date());
+  //const [completedDates, setCompletedDates] = useState([]);
+
+  const { selectedDate, setSelectedDate, completedDates, setCompletedDates } =
+    useChallengeStore();
   const [userCode, setUserCode] = useState("");
   const [showCalendar, setShowCalendar] = useState(false);
   const [showChallenge, setShowChallenge] = useState(false);
