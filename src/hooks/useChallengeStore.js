@@ -6,3 +6,5 @@ const useChallengeStore = create((set) => ({
   setCompletedDates: (dates) => set({ completedDates: dates }),
   setCurrentChallenge: (challenge) => set({ currentChallenge: challenge }),
 }));
+
+export default useChallengeStore;
