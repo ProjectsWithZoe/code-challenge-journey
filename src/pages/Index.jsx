@@ -56,13 +56,13 @@ const Index = ({ isMobile }) => {
     return userId;
   }
 
-  //const userId = getOrCreateUserId();
-  //console.log("user Id", userId);
+  const userId = getOrCreateUserId();
+  console.log("user Id", userId);
 
-  //console.log("Index component rendered");
+  console.log("Index component rendered");
 
   useEffect(() => {
-    getOrCreateUserId();
+    //getOrCreateUserId();
     console.log(selectedDate);
   }, []);
 
