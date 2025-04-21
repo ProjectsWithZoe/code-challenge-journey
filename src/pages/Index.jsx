@@ -18,6 +18,7 @@ import { format } from "date-fns";
 import { useNavigate } from "react-router-dom";
 import confetti from "canvas-confetti"; // Import the confetti library
 import useChallengeStore from "@/hooks/useChallengeStore";
+import { get } from "http";
 
 const Index = ({ isMobile }) => {
   //const [selectedDate, setSelectedDate] = useState(new Date());
@@ -55,12 +56,13 @@ const Index = ({ isMobile }) => {
     return userId;
   }
 
-  const userId = getOrCreateUserId();
-  console.log("user Id", userId);
+  //const userId = getOrCreateUserId();
+  //console.log("user Id", userId);
 
   //console.log("Index component rendered");
 
   useEffect(() => {
+    getOrCreateUserId();
     console.log(selectedDate);
   }, []);
 
