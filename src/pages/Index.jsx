@@ -56,7 +56,7 @@ const Index = ({ isMobile }) => {
   }
 
   const userId = getOrCreateUserId();
-  console.log(userId);
+  console.log("user Id", userId);
 
   //console.log("Index component rendered");
 
