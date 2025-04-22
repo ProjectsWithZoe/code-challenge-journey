@@ -81,9 +81,8 @@ const Index = ({ isMobile }) => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        challengeId: "123",
-        userId: "anonUser123", // or null
-        completionData: { timestamp: Date.now() },
+        UUID: localStorage.getItem("userId"),
+        challengeDate: selectedDate, // or null
       }),
     });
     const result = response.json();
