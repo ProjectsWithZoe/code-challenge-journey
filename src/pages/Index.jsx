@@ -76,6 +76,14 @@ const Index = ({ isMobile }) => {
     saveCompletedChallenges(completedDates); // Save the updated completedDates to local storage
   }, [completedDates]);
 
+  const addToDatabase = async () => {
+    const response = await fetch("/api/savecompleted");
+    const result = response.json();
+    console.log("data updated", result);
+  };
+
+  addToDatabase();
+
   /*const handleEvaluate = (evaluator) => {
     setEvaluateChallenge(() => evaluator);
   }
@@ -107,12 +115,6 @@ const Index = ({ isMobile }) => {
     setCurrentChallenge(challenge);
   };
 
-  const addToDatabase = async () => {
-    const response = await fetch("/api/savecompleted");
-    const result = response.json();
-    console.log("data updated", result);
-  };
-
   const handleChallengeComplete = (date) => {
     // If the date is not already in the completed challenges, add it
     if (!completedDates.includes(date)) {
@@ -122,7 +124,7 @@ const Index = ({ isMobile }) => {
       setRedirecting(true); // Set redirecting state to true
       throwConfetti(); // Call the confetti function
 
-      addToDatabase();
+      //addToDatabase();
       if (isMobile) {
         setTimeout(() => {
           navigate("/");
