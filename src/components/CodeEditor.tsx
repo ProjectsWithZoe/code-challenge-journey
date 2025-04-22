@@ -7,6 +7,7 @@ import { Check, Play, RotateCcw } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 import { runTests } from "@/utils/testRunner";
 import { testCases } from "@/utils/testCases";
+import useChallengeStore from "@/hooks/useChallengeStore";
 
 const CodeEditor = ({
   date,
@@ -20,12 +21,17 @@ const CodeEditor = ({
   const [isRunning, setIsRunning] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitBtnClicked, setSubmitBtnClicked] = useState(false);
+  const { selectedDate } = useChallengeStore();
   const navigate = useNavigate();
   const { toast } = useToast();
 
   useEffect(() => {
     setCode(starterCode);
   }, [starterCode]);
+
+  useEffect(() => {
+    setSubmitBtnClicked(false);
+  }, [selectedDate]);
 
   const runTestCases = () => {
     if (!currentChallenge?.functionName) {
