@@ -82,16 +82,12 @@ const Index = ({ isMobile }) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         UUID: localStorage.getItem("userId"),
-        challengeDate: selectedDate, // or null
+        challengeDate: format(selectedDate, "yyyy-MM-dd"),
       }),
     });
     const result = response.json();
     console.log("data updated", result);
   };
-
-  useEffect(() => {
-    addToDatabase();
-  }, []);
 
   /*const handleEvaluate = (evaluator) => {
     setEvaluateChallenge(() => evaluator);
@@ -132,8 +128,7 @@ const Index = ({ isMobile }) => {
       saveCompletedChallenge(date); // Save to local storage
       setRedirecting(true); // Set redirecting state to true
       throwConfetti(); // Call the confetti function
-
-      //addToDatabase();
+      addToDatabase(); // Add to database
       if (isMobile) {
         setTimeout(() => {
           navigate("/");
