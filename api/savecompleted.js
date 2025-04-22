@@ -3,7 +3,6 @@ import dotenv from "dotenv";
 dotenv.config();
 
 const uri = process.env.MONGODB_URI;
-
 const client = new MongoClient(uri);
 
 await client.connect();
@@ -15,12 +14,14 @@ const database = client.db(dbName);
 const collection = database.collection(collectionName);
 
 try {
-  const insertResult = await collection.insertOne("hi");
+  const insertResult = await collection.insertOne({ message: "hi" });
   console.log(
-    `${insertResult.insertedCount} documents successfully inserted.\n`
+    `Document successfully inserted with _id: ${insertResult.insertedId}\n`
   );
 } catch (err) {
   console.error(
-    `Something went wrong trying to insert the new documents: ${err}\n`
+    `Something went wrong trying to insert the new document: ${err}\n`
   );
+} finally {
+  await client.close(); // Good practice to close the connection
 }
