@@ -226,18 +226,18 @@ export const testCases = {
   getOddNumbers: [
     {
       name: "Mixed numbers",
-      input: [[1, 2, 3, 4, 5]],
-      expected: [1, 3, 5],
+      input: [3],
+      expected: true,
     },
     {
       name: "All even",
-      input: [[2, 4, 6]],
-      expected: [],
+      input: [2],
+      expected: false,
     },
     {
       name: "Empty array",
       input: [[]],
-      expected: [],
+      expected: false,
     },
   ],
 
