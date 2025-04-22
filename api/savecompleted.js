@@ -1,27 +1,35 @@
 import { MongoClient } from "mongodb";
-import dotenv from "dotenv";
-dotenv.config();
 
-const uri = process.env.MONGODB_URI;
-const client = new MongoClient(uri);
+let cachedClient = null;
 
-await client.connect();
+async function connectToDatabase() {
+  if (cachedClient) return cachedClient;
+  const client = new MongoClient(process.env.MONGODB_URI);
+  await client.connect();
+  cachedClient = client;
+  return client;
+}
 
-const dbName = "alwaysReturn";
-const collectionName = "savedChallenges";
+export default async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).json({ message: "Method not allowed" });
+  }
 
-const database = client.db(dbName);
-const collection = database.collection(collectionName);
+  const { challengeId, userId, completionData } = req.body;
 
-try {
-  const insertResult = await collection.insertOne({ message: "hi" });
-  console.log(
-    `Document successfully inserted with _id: ${insertResult.insertedId}\n`
-  );
-} catch (err) {
-  console.error(
-    `Something went wrong trying to insert the new document: ${err}\n`
-  );
-} finally {
-  await client.close(); // Good practice to close the connection
+  try {
+    const client = await connectToDatabase();
+    const db = client.db("alwaysReturn");
+    const collection = db.collection("savedChallenges");
+
+    await collection.updateOne(
+      { _id: challengeId },
+      { $push: { completions: { userId, ...completionData } } }
+    );
+
+    res.status(200).json({ message: "Challenge completion recorded." });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Something went wrong." });
+  }
 }

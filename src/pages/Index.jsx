@@ -77,7 +77,15 @@ const Index = ({ isMobile }) => {
   }, [completedDates]);
 
   const addToDatabase = async () => {
-    const response = await fetch("/api/savecompleted");
+    const response = await fetch("/api/savecompleted", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        challengeId: "123",
+        userId: "anonUser123", // or null
+        completionData: { timestamp: Date.now() },
+      }),
+    });
     const result = response.json();
     console.log("data updated", result);
   };
