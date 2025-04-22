@@ -24,7 +24,8 @@ export default async function handler(req, res) {
 
     await collection.updateOne(
       { _id: challengeId },
-      { $push: { completions: { userId, ...completionData } } }
+      { $push: { completions: { userId, ...completionData } } },
+      { upsert: true }
     );
 
     res.status(200).json({ message: "Challenge completion recorded." });
