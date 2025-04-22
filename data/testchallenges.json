@@ -280,7 +280,7 @@
     "difficulty": "Easy",
     "functionName": "getOddNumbers",
     "description": "Return true if a given number is odd.",
-    "variables": "(array)",
+    "variables": "(number)",
     "examples": [
       { "input": "4", "output": "false", "explanation": "4 is even" },
       { "input": "7", "output": "true", "explanation": "7 is odd" }
