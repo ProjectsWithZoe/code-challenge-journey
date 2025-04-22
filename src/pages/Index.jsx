@@ -82,7 +82,9 @@ const Index = ({ isMobile }) => {
     console.log("data updated", result);
   };
 
-  addToDatabase();
+  useEffect(() => {
+    addToDatabase();
+  }, []);
 
   /*const handleEvaluate = (evaluator) => {
     setEvaluateChallenge(() => evaluator);
